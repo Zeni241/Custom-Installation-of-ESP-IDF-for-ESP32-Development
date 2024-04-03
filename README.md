@@ -19,46 +19,44 @@ This tutorial, we'll guide you through setting up a custom installation of ESP-I
      ```
      
 3. **Install IDF Toolchain:**
-4. 6.	Run the script:(to bypass execution policy for permanently for current user)
-      ```
+  
+     	 
+   Now time to install IDF toolchain. By default the tool chain is installed inside the user home directory: $HOME/.espressif on Linux and ‎macOS, and folder %USERPROFILE%\.espressif on       Windows. ‎As we are going to install the tools into a different directories (d:\iot\IDF521Tools ‎), we will have to set the environment variable IDF_TOOLS_PATH before running the            ‎installation scripts.
+
+   First run the script(to bypass execution policy for permanently for current user)
+     ```
      	Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope CurrentUser
       ```
-     	 
-Now time to install IDF toolchain. By default the tool chain is installed inside the user home directory: $HOME/.espressif on Linux and ‎macOS, and folder %USERPROFILE%\.espressif on Windows. ‎As we are going to install the tools into a different directories (d:\iot\IDF521Tools ‎), we will have to set the environment variable IDF_TOOLS_PATH before running the ‎installation scripts
-8	 Run command (to set the IDF_TOOLS_PATH to d:\iot\IDF521Tools temporarily as long as ‎PS (or VS Code) is running.)
+	 Run command (to set the IDF_TOOLS_PATH to d:\iot\IDF521Tools temporarily as long as ‎PS (or VS Code) is running.)
 ```
  $Env:IDF_TOOLS_PATH = "d:\iot\IDF521Tools
 ```
-9	Run command (to check the IDF_TOOLS_PATH environment path is set correctly)
+	
+ Run command (to check the IDF_TOOLS_PATH environment path is set correctly)
+ 
 ```
 $Env: IDF_TOOLS_PATH
 ```
  
-Now that IDF_TOOLS_PATH is set correctly to d:\iot\IDF521Tools,  install IDF toolchain by running the ‎script 
+Now that IDF_TOOLS_PATH is set correctly to d:\iot\IDF521Tools,  install IDF toolchain by running the ‎script inside the IDF folder "d:\iot\IDF521"
+
 ```
-.\install.ps1” inside the IDF folder "d:\iot\IDF521
-```
-The installed tools are not yet added to the PATH environment variable. To make the tools usable from the command line, some environment variables must be set. ESP-IDF provides another script which does that.
-Inside the "d:\iot\IDF521" run command
-``` .\export.ps1 (If I run export.ps1
+.\install.ps1 
 ```
 
-   - Set the IDF tools path:
-     ```
-     $Env:IDF_TOOLS_PATH = "d:\iot\IDF521Tools"
-     ```
-   - Run installation script:
-     ```
-     .\install.ps1
-     ```
+
+
+
+   
 
 5. **Set Environment Variables:**
-   - Run export script:
+The installed tools are not yet added to the PATH environment variable. To make the tools usable from the command line, some environment variables must be set. ESP-IDF provides another script which does that.
+   - Run export script Inside the "d:\iot\IDF521":
      ```
      .\export.ps1
      ```
 
-6. **Add PowerShell Core in VS Code:**
+7. **Add PowerShell Core in VS Code:**
    - Install PowerShell Core.
    - Open VS Code settings.json.
    - Set PowerShell Core as default terminal:
@@ -68,7 +66,7 @@ Inside the "d:\iot\IDF521" run command
      }
      ```
 
-7. **Customize PowerShell Profile:**
+8. **Customize PowerShell Profile:**
    - Open PowerShell profile.ps1.
    - Add functions for custom commands:
      ```powershell
@@ -78,14 +76,14 @@ Inside the "d:\iot\IDF521" run command
      }
      ```
 
-8. **Set Up VS Code for ESP-IDF Projects:**
+9. **Set Up VS Code for ESP-IDF Projects:**
    - Open your project folder in VS Code.
    - Modify .vscode\c_cpp_properties.json to include IDF components.
 
-9. **Configure VS Code Settings:**
+10. **Configure VS Code Settings:**
    - Change IntelliSense engine to "Tag Parser".
 
-10. **Run Commands Using Shortcuts:**
+11. **Run Commands Using Shortcuts:**
    - In VS Code terminal, run `idf521`.
    - Use predefined functions like `monit3`, `flash3`, etc., for common tasks.
 
