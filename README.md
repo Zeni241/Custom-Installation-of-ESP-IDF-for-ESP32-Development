@@ -70,7 +70,23 @@ The installed tools are not yet added to the PATH environment variable. To make 
      }
      ```
 Now whenever the function is executed by typing “idf521” in PowerShell window,  the first line will set the environment variable of IDF_TOOLS_PATH to "D:\IOT\IDF521Tools" and the second line will set rest of env. variables so you can use esp-idf in current window of powershell. It adds the installed tools to the PATH environment variable.
+
 Everytime you start VSCode for esp32 development, you will have to run ```idf521``` first.  
+
+You can further add many functions such as:
+	- function monit3 {idf.py -p com3 monitor} # Monitor on port 3
+ 	- function flash4 {idf.py -p com4 flash monitor} # Flash and monitor on port 4
+        - function fclean {idf.py fullclean} # Clean build folder
+	- function prts {$portList = get-pnpdevice -class Ports -ea 0
+		if ($portList) {
+		     foreach($device in $portList) {
+		          if ($device.Present) {
+		               Write-Host $device.Name "(Manufacturer:"$device.Manufacturer")"
+		          }
+		     }
+		}}  # Get the detail of ports in use
+
+
 9. **Set Up VS Code for ESP-IDF Projects:**
    - Open your project folder in VS Code.
    - Modify .vscode\c_cpp_properties.json to include IDF components.
