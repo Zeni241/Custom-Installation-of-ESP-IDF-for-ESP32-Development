@@ -43,12 +43,6 @@ Now that IDF_TOOLS_PATH is set correctly to d:\iot\IDF521Tools,  install IDF too
 ```
 .\install.ps1 
 ```
-
-
-
-
-   
-
 5. **Set Environment Variables:**
 The installed tools are not yet added to the PATH environment variable. To make the tools usable from the command line, some environment variables must be set. ESP-IDF provides another script which does that.
    - Run export script Inside the "d:\iot\IDF521":
@@ -66,7 +60,7 @@ The installed tools are not yet added to the PATH environment variable. To make 
      }
      ```
 
-8. **Customize PowerShell Profile:**
+8. **Add functions in PowerShell to add sortcut keys for lengthy commands:**
    - Open PowerShell profile.ps1.
    - Add functions for custom commands:
      ```powershell
@@ -75,13 +69,30 @@ The installed tools are not yet added to the PATH environment variable. To make 
          . d:/IOT/IDF521/export.ps1
      }
      ```
-
+Now whenever the function is executed by typing “idf521” in PowerShell window,  the first line will set the environment variable of IDF_TOOLS_PATH to "D:\IOT\IDF521Tools" and the second line will set rest of env. variables so you can use esp-idf in current window of powershell. It adds the installed tools to the PATH environment variable.
+Everytime you start VSCode for esp32 development, you will have to run ```idf521``` first.  
 9. **Set Up VS Code for ESP-IDF Projects:**
    - Open your project folder in VS Code.
    - Modify .vscode\c_cpp_properties.json to include IDF components.
+   
+ 
+     	    "configurations": [
+	        {
+	            "name": "Win32",
+	            "includePath": [
+	                "${workspaceFolder}/**",
+	                "D:/IOT/IDF521/components/**"
+	               
+	            ],
 
-10. **Configure VS Code Settings:**
-   - Change IntelliSense engine to "Tag Parser".
+
+
+**Configure VS Code Settings:**
+
+	- Open Setting of VSCode (File/Preferences/Settings).
+	- Search for “C_Cpp.intelliSenseEngine”
+	- Change C_Cpp.intelliSenseEngine to “Tag Parser”
+
 
 11. **Run Commands Using Shortcuts:**
    - In VS Code terminal, run `idf521`.
