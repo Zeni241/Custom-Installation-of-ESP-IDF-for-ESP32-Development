@@ -8,7 +8,7 @@ This tutorial, we'll guide you through setting up a custom installation of ESP-I
 ### Steps:
 
 1. **Create Folders:**
-   - Create two folders named `IDF521` and `IDF521Tools`.
+   - Create two folders named `IDF521` and `IDF521Tools`(to install idf ver 5.2.1).
   
    - For other versions of IDF you can create similar folders and follow these steps again.
 
